@@ -64,10 +64,11 @@ public class NotificationController extends MultiActionController {
         logger.debug("apiKey=" + apiKey);
 
         if (broadcast.equalsIgnoreCase("Y")) {//修改，进行压力测试，每隔10ms发送一次广播 ，一共重复200次
-        	for (int i = 0; i < 4000; i++) {
+        	/*for (int i = 0; i < 4000; i++) {
         		notificationManager.sendBroadcast(apiKey, title, message+i, uri);
         		TimeUnit.MILLISECONDS.sleep(10);
-			}
+			}*/
+        	notificationManager.sendBroadcast(apiKey, title, message, uri);
         } else {
             notificationManager.sendNotifcationToUser(apiKey, username, title,
                     message, uri);
