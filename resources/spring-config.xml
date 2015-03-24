@@ -130,5 +130,11 @@
 		<property name="filterChainBuilder" ref="filterChainBuilder" />
 		<property name="reuseAddress" value="true" />
 	</bean>
+	
+	<!-- 设置服务端进入空闲状态的时间 -->
+	<bean id="getSessionConfig" factory-bean="ioAcceptor" factory-method="getSessionConfig">
+		<!-- 可以设置180s:客户端每隔60s传递一次数据，传递3次没有结果进入空闲状态 -->
+		<property name="readerIdleTime" value="30"></property>
+	</bean>
 
 </beans>
